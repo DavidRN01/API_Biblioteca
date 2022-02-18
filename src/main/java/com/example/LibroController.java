@@ -32,9 +32,15 @@ public class LibroController {
     }
     
     @GetMapping("/{id}")
-    public Libro one(@PathVariable Long id) {
+    public Libro detalle(@PathVariable Long id) {
         Libro l = repo.getById(id);
         return l;
+    }
+    
+    @GetMapping("/cat/{categoria}")
+    public List<Libro> categoria(@PathVariable String categoria) {
+        List<Libro> salida = repo.findByCategoria(categoria);
+        return salida;
     }
     
 }

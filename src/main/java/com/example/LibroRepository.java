@@ -16,6 +16,7 @@ import org.springframework.data.jpa.repository.Query;
  */
 public interface LibroRepository extends JpaRepository<Libro, Long> {
     
+    public List<Libro> findByCategoria(String categoria);
     
     @Query(value="SELECT libro.id, libro.titulo FROM Libro libro")
     public List<Object[]> listaBasica ();
