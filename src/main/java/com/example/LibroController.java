@@ -43,4 +43,10 @@ public class LibroController {
         return salida;
     }
     
+    @GetMapping("/aut/{autor}")
+    public List<Libro> autor(@PathVariable String autor) {
+        List<Libro> salida = repo.findByAutor(autor);
+        return salida;
+    }
+    
 }
