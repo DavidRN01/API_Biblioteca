@@ -27,8 +27,8 @@ public class LibroController {
     private LibroRepository repo;
     
     @GetMapping("/")
-    public List<Libro> list() {
-        return repo.findAll();
+    public List<Object[]> listaBasica() {
+        return repo.listaBasica();
     }
     
 }
