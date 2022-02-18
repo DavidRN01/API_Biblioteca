@@ -31,6 +31,11 @@ public class LibroController {
         return repo.listaBasica();
     }
     
+    @GetMapping("/detalle")
+    public List<Libro> listaDetallada() {
+        return repo.findAll();
+    }
+    
     @GetMapping("/{id}")
     public Libro detalle(@PathVariable Long id) {
         Libro l = repo.getById(id);
@@ -46,6 +51,18 @@ public class LibroController {
     @GetMapping("/aut/{autor}")
     public List<Libro> autor(@PathVariable String autor) {
         List<Libro> salida = repo.findByAutor(autor);
+        return salida;
+    }
+    
+    @GetMapping("/isbn/{isbn}")
+    public List<Libro> isbn(@PathVariable String isbn) {
+        List<Libro> salida = repo.findByIsbn(isbn);
+        return salida;
+    }
+    
+    @GetMapping("/edi/{edicion}")
+    public List<Libro> edicion(@PathVariable String edicion) {
+        List<Libro> salida = repo.findByEdicion(edicion);
         return salida;
     }
     

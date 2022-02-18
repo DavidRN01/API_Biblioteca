@@ -20,6 +20,10 @@ public interface LibroRepository extends JpaRepository<Libro, Long> {
     
     public List<Libro> findByAutor(String autor);
     
+    public List<Libro> findByIsbn(String isbn);
+    
+    public List<Libro> findByEdicion(String edicion);
+    
     @Query(value="SELECT libro.id, libro.titulo FROM Libro libro")
     public List<Object[]> listaBasica ();
     
