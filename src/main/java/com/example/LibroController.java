@@ -31,4 +31,10 @@ public class LibroController {
         return repo.listaBasica();
     }
     
+    @GetMapping("/{id}")
+    public Libro one(@PathVariable Long id) {
+        Libro l = repo.getById(id);
+        return l;
+    }
+    
 }
