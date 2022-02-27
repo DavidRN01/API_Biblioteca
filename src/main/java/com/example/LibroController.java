@@ -66,4 +66,18 @@ public class LibroController {
         return salida;
     }
     
+    @PostMapping("/")
+    public Libro crear(@ModelAttribute Libro libro) {
+        return repo.save(libro);
+    }
+    
+    @PostMapping("/{id}")
+    public Libro modificar(@PathVariable Long id, @ModelAttribute Libro libro) {
+        Libro l = repo.getById(id);
+        l.setCategoria(libro.getCategoria());
+        l.setTitulo(libro.getTitulo());
+        l.setEdicion(libro.getEdicion());
+        return repo.save(l);
+    }
+    
 }

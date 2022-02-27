@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css"/>
+        <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+        <script>
+            $(document).ready( function () {
+                $('#listado').DataTable();
+            } );
+        </script>
+    </head>
+    <body>
+        <table id="listado" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Titulo</th>
+                    <th>Autor</th>
+                    <th>Categoria</th>
+                    <th>Edicion</th>
+                    <th>ISBN</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="libro:${libro}">
+                    <td scope="row" th:text="${libro.titulo}"></td>
+                    <td scope="row" th:text="${libro.autor}"></td>
+                    <td scope="row" th:text="${libro.categoria}"></td>
+                    <td scope="row" th:text="${libro.edicion}"></td>
+                    <td scope="row" th:text="${libro.isbn}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
